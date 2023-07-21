@@ -17,9 +17,9 @@ WHERE g.mid = m.id AND m.id = md.mid AND g.genre = 'Film-Noir' AND d.id = md.did
 
 -- 3. List all the actors who acted in a film before 1900 and also in a film after 2000.
 
-SELECT DISTINCT a.fname as FirstName, a.lname as LastName
+SELECT DISTINCT a.name as FirstName, a.name2 as LastName
 FROM ACTOR a, MOVIE m1, MOVIE m2, CASTS c1, CASTS c2  
-WHERE m1.year < 1900 AND m2.year > 2000 AND a.id = c1.pid AND c1.mid = m1.id AND a.id = c2.pid AND c2.mid = m2.id;
+WHERE m1.year < 1900 AND m2.year > 2000 AND a.actor_id = c1.actor_id AND c1.movie_id = m1.movie_id AND a.actor_id = c2.actor_id AND c2.movie_id = m2.movie_id;
 
 /*
 The reason actors appear in movies more than 100 years apart is because the information for movie year is not
